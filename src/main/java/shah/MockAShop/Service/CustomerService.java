@@ -20,7 +20,7 @@ public class CustomerService {
     List<Customer> findAll = customerRepo.findAll();
     return findAll;
   }
-
+//
   public Customer getCustomerById(String id) {
     Customer result = customerRepo.findById(id).get();
     System.out.println("****************");
