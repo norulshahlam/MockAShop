@@ -23,8 +23,6 @@ CREATE TABLE `mockashop`.`customer` (
   `seller_contact` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`seller_id`),
   UNIQUE INDEX `seller_id_UNIQUE` (`seller_id` ASC) VISIBLE,
-  UNIQUE INDEX `seller_pswd_UNIQUE` (`seller_pswd` ASC) VISIBLE,
-  UNIQUE INDEX `seller_contact_UNIQUE` (`seller_contact` ASC) VISIBLE,
   UNIQUE INDEX `seller_email_UNIQUE` (`seller_email` ASC) VISIBLE);
 
 INSERT INTO `mockashop`.`customer` (`seller_id`, `seller_name`, `seller_email`, `seller_pswd`, `seller_contact`) VALUES ('10001', 'cindi', 'cindi@gmail.com', 'abc123', '92212152');
