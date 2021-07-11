@@ -3,6 +3,8 @@ package shah.MockAShop.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import shah.MockAShop.Models.Customer;
@@ -14,14 +16,16 @@ public class CustomerService {
   @Autowired
   private CustomerRepo customerRepo;
 
-  public List<Customer> getCustomers() {
+  public ResponseEntity<List<Customer>> getCustomers() {
     List<Customer> findAll = customerRepo.findAll();
-    return findAll;
+    return ResponseEntity.status(HttpStatus.OK).body(findAll);
   }
 
-  public Customer getCustomerById(String id) {
-    Customer findOne = customerRepo.findById(id).get();
-    return findOne;
+  public ResponseEntity<Customer> getCustomerById(String id) {
+    Customer result = customerRepo.findById(id).get();
+    System.out.println("****************");
+    System.out.println(result);
+    return ResponseEntity.ok(result);
   }
 
   public Customer addCustomer(Customer c) {
