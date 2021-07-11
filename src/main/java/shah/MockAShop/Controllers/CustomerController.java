@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,12 +27,12 @@ public class CustomerController {
   }
 
   @GetMapping("/customers")
-  public List<Customer> getCustomers() {
+  public ResponseEntity<List<Customer>> getCustomers() {
     return customerService.getCustomers();
   }
 
   @GetMapping("/customer/{id}")
-  public Customer getCustomerById(@PathVariable("id") String id) {
+  public ResponseEntity<Customer> getCustomerById(@PathVariable("id") String id) {
    return customerService.getCustomerById(id);
   }
 
@@ -48,6 +49,5 @@ public class CustomerController {
   public void deleteCustomer(@PathVariable("id") String id) {
     customerService.deleteCustomer(id);
   }
-
 }
 
