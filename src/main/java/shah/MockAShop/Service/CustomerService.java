@@ -16,16 +16,16 @@ public class CustomerService {
   @Autowired
   private CustomerRepo customerRepo;
 
-  public ResponseEntity<List<Customer>> getCustomers() {
+  public List<Customer> getCustomers() {
     List<Customer> findAll = customerRepo.findAll();
-    return ResponseEntity.status(HttpStatus.OK).body(findAll);
+    return findAll;
   }
 
-  public ResponseEntity<Customer> getCustomerById(String id) {
+  public Customer getCustomerById(String id) {
     Customer result = customerRepo.findById(id).get();
     System.out.println("****************");
     System.out.println(result);
-    return ResponseEntity.ok(result);
+    return result;
   }
 
   public Customer addCustomer(Customer c) {
