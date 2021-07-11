@@ -32,7 +32,7 @@ public class CustomerController {
   }
 
   @GetMapping("/customer/{id}")
-  public ResponseEntity<Customer> getCustomerById(@PathVariable("id") String id) {
+  public ResponseEntity<?> getCustomerById(@PathVariable("id") String id) {
    return customerService.getCustomerById(id);
   }
 
@@ -40,6 +40,7 @@ public class CustomerController {
   public ResponseEntity<String> addCustomer(@RequestBody Customer c) {
     return customerService.addCustomer(c);
   }
+
   @PutMapping("/customer")
   public ResponseEntity<String> updateCustomer(@RequestBody Customer c) {
     return customerService.updateCustomer(c);
