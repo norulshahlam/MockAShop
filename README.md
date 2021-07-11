@@ -2,7 +2,7 @@
 ## V3
   `implementing basic rest controller`
   `implementing http request`
-  `implement custom repo`
+  `implement custom repo` - https://www.youtube.com/watch?v=Wh4iLUtzt-I&list=PLJ-lrQx0LAbxJB6B7go8Tj39xD33fYDP6&index=2
   
 Restful API tutorials
 
