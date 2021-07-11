@@ -27,12 +27,12 @@ public class CustomerController {
   }
 
   @GetMapping("/customers")
-  public ResponseEntity<List<Customer>> getCustomers() {
+  public List<Customer> getCustomers() {
     return customerService.getCustomers();
   }
 
   @GetMapping("/customer/{id}")
-  public ResponseEntity<Customer> getCustomerById(@PathVariable("id") String id) {
+  public Customer getCustomerById(@PathVariable("id") String id) {
    return customerService.getCustomerById(id);
   }
 
