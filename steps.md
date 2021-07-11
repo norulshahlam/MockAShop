@@ -1,5 +1,7 @@
 ## Restful API tutorials
 
+  `implementing basic rest controller`
+
 We will go step-by-step on how to create from scratch using a problem statement given.
 
   1. create db
