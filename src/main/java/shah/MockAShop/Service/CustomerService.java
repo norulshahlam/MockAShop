@@ -3,14 +3,15 @@ package shah.MockAShop.Service;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.annotations.NotFound;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import shah.MockAShop.Models.Customer;
 import shah.MockAShop.Repository.CustomerRepo;
-
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
@@ -27,31 +28,36 @@ public class CustomerService {
   }
 
   // FIND ONE
-  public ResponseEntity<Customer> getCustomerById(String id) {
-    Customer result;
+  public ResponseEntity<?> getCustomerById(String id) {
+    Customer result = new Customer();
     try {
       result = customerRepo.findById(id).get();
     } catch (Exception e) {
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+      result.setSeller_id(id);
+      return createSimpleJSONResponse(HttpStatus.NOT_FOUND, "Resource not found");
     }
-
-    System.out.println("****************");
-    System.out.println(result);
     return ResponseEntity.ok(result);
   }
 
   // ADD ONE
   public ResponseEntity<String> addCustomer(Customer c) {
+    boolean ifExists = customerRepo.existsById(c.getSeller_id());
+    if (ifExists)
+      return createSimpleJSONResponse(BAD_REQUEST, "Resource exists");
     try {
       customerRepo.save(c);
     } catch (Exception e) {
-      return createSimpleJSONResponse(BAD_REQUEST,  e.getLocalizedMessage());
+      return createSimpleJSONResponse(BAD_REQUEST, e.getLocalizedMessage());
     }
     return createSimpleJSONResponse(CREATED, "Resource created");
   }
 
   // UPDATE ONE
   public ResponseEntity<String> updateCustomer(Customer c) {
+    boolean ifExists = customerRepo.existsById(c.getSeller_id());
+  
+    if (!ifExists)
+      return createSimpleJSONResponse(BAD_REQUEST, "Resource doesnt exists");
     try {
       customerRepo.save(c);
     } catch (Exception e) {
@@ -67,9 +73,9 @@ public class CustomerService {
     try {
       customerRepo.deleteById(c);
     } catch (Exception e) {
-      return createSimpleJSONResponse(NOT_FOUND,  e.getLocalizedMessage());
+      return createSimpleJSONResponse(NOT_FOUND, c+" doesnt exists!");
     }
-    return createSimpleJSONResponse(OK, "Resource deleted");
+    return createSimpleJSONResponse(OK, "Item "+c+" deleted");
   }
 
   // CUSTOM RESPONSE WITH MESSAGE
