@@ -2,6 +2,7 @@
 ## V3
   `implementing basic rest controller`
   `implementing http request`
+  `implement custom repo`
 
 We will go step-by-step on how to create from scratch using a problem statement given.
 
