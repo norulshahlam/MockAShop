@@ -2,15 +2,13 @@ package shah.MockAShop.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-import org.hibernate.annotations.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import shah.MockAShop.Models.Customer;
 import shah.MockAShop.Repository.CustomerRepo;
-
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
@@ -28,11 +26,13 @@ public class CustomerService {
 
   // FIND ONE
   public ResponseEntity<Customer> getCustomerById(String id) {
-    Customer result;
-    try {
+    Customer result=new Customer();
+    try { 
+      HttpHeaders h = new HttpHeaders();
+      h.add("message", "Resource not found");
       result = customerRepo.findById(id).get();
     } catch (Exception e) {
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+      return new ResponseEntity<Customer>(result, HttpStatus.NOT_FOUND);
     }
 
     System.out.println("****************");
