@@ -41,7 +41,7 @@ public class Seller {
   @NotNull(message = "Wallet cannot be blank")
   private BigDecimal seller_wallet;
   
-  @OneToMany(mappedBy = "product")
+  @OneToMany(mappedBy = "seller")
   private Set<Product> product;
      
 }

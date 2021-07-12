@@ -38,3 +38,15 @@ CREATE TABLE `mockashop`.`product` (
     REFERENCES `mockashop`.`seller` (`seller_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+CREATE TABLE `mockashop`.`cart` (
+  `cart_id` INT NOT NULL AUTO_INCREMENT,
+  `cust_id` INT NOT NULL,
+  PRIMARY KEY (`cart_id`),
+  UNIQUE INDEX `cart_id_UNIQUE` (`cart_id` ASC) VISIBLE,
+  INDEX `cust_id_idx` (`cust_id` ASC) VISIBLE,
+  CONSTRAINT `cust_id`
+    FOREIGN KEY (`cust_id`)
+    REFERENCES `mockashop`.`customer` (`customer_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
