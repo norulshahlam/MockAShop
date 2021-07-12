@@ -6,38 +6,38 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-import shah.MockAShop.Models.Customer;
-import shah.MockAShop.Repository.CustomerRepo;
+import shah.MockAShop.Models.Seller;
+import shah.MockAShop.Repository.SellerRepo;
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @Service
-public class CustomerService {
+public class SellerService {
 
   @Autowired
-  private CustomerRepo customerRepo;
+  private SellerRepo sellerRepo;
 
   // FIND ALL
-  public ResponseEntity<List<Customer>> getCustomers() {
-    List<Customer> findAll = customerRepo.findAll();
+  public ResponseEntity<List<Seller>> getSellers() {
+    List<Seller> findAll = sellerRepo.findAll();
     return ResponseEntity.status(HttpStatus.OK).body(findAll);
   }
  
   // FIND ONE
-  public ResponseEntity<?> getCustomerById(int id) {
-    Customer result = new Customer();
+  public ResponseEntity<?> getSellerById(int id) {
+    Seller result = new Seller();
     try {
-      result = customerRepo.findById(id).get();
+      result = sellerRepo.findById(id).get();
     } catch (Exception e) {
-      result.setCustomer_id(id);
+      result.setSeller_id(id);
       return createSimpleJSONResponse(HttpStatus.NOT_FOUND, "Resource not found");
     }
     return ResponseEntity.ok(result);
   }
 
   // ADD ONE
-  public ResponseEntity<String> addCustomer(Customer c, BindingResult result) {
-    boolean ifExists = customerRepo.existsById(c.getCustomer_id());
+  public ResponseEntity<String> addSeller(Seller c, BindingResult result) {
+    boolean ifExists = sellerRepo.existsById(c.getSeller_id());
     if (ifExists)
       return createSimpleJSONResponse(BAD_REQUEST, "Resource exists");
     if (result.hasErrors()) {
@@ -45,7 +45,7 @@ public class CustomerService {
       return createSimpleJSONResponse(BAD_REQUEST, result.getFieldError().getDefaultMessage());
       }
     try {
-      customerRepo.save(c);
+      sellerRepo.save(c);
     } catch (Exception e) {
       System.out.println(e.getMessage());
       return createSimpleJSONResponse(BAD_REQUEST, e.getLocalizedMessage());
@@ -54,13 +54,13 @@ public class CustomerService {
   }
 
   // UPDATE ONE
-  public ResponseEntity<String> updateCustomer(Customer c) {
-    boolean ifExists = customerRepo.existsById(c.getCustomer_id());
+  public ResponseEntity<String> updateSeller(Seller c) {
+    boolean ifExists = sellerRepo.existsById(c.getSeller_id());
   
     if (!ifExists)
       return createSimpleJSONResponse(BAD_REQUEST, "Resource doesnt exists");
     try {
-      customerRepo.save(c);
+      sellerRepo.save(c);
     } catch (Exception e) {
       System.out.println(e.getLocalizedMessage());
       return createSimpleJSONResponse(BAD_REQUEST, e.getLocalizedMessage());
@@ -69,10 +69,10 @@ public class CustomerService {
   }
 
   // DELETE ONE
-  public ResponseEntity<String> deleteCustomer(int c) {
+  public ResponseEntity<String> deleteSeller(int c) {
 
     try {
-      customerRepo.deleteById(c);
+      sellerRepo.deleteById(c);
     } catch (Exception e) {
       return createSimpleJSONResponse(NOT_FOUND, c+" doesnt exists!");
     }

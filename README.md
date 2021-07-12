@@ -1,8 +1,9 @@
 ## Restful API tutorials
-## V2
+## V4
   `implementing basic rest controller`
   `implementing http request`
   `model validation`
+  `add seller`
 
 
 We will go step-by-step on how to create from scratch using a problem statement given.
