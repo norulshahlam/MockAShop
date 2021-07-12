@@ -1,10 +1,11 @@
 ## Restful API tutorials
-## V4
+## V5
   `implementing basic rest controller`
   `implementing http request`
   `model validation`
   `add seller, product`
   `establish relationship - seller has many product`
+  `add cart, cart item`
 
 
 We will go step-by-step on how to create from scratch using a problem statement given.
