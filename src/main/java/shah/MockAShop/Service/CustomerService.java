@@ -82,7 +82,7 @@ public class CustomerService {
   private ResponseEntity<String> createSimpleJSONResponse(HttpStatus status, String message) {
     return createJSONResponse(status, "{\"message\":\"" + message + "\"}");
   } 
-
+ 
   private ResponseEntity<String> createJSONResponse(HttpStatus status, String body) {
     return ResponseEntity.status(status).contentType(APPLICATION_JSON).body(body);
   }
