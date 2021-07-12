@@ -10,6 +10,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+
 import shah.MockAShop.Models.Customer;
 import shah.MockAShop.Repository.CustomerRepo;
 import static org.springframework.http.HttpStatus.*;
@@ -40,10 +42,14 @@ public class CustomerService {
   }
 
   // ADD ONE
-  public ResponseEntity<String> addCustomer(Customer c) {
+  public ResponseEntity<String> addCustomer(Customer c, BindingResult result) {
     boolean ifExists = customerRepo.existsById(c.getSeller_id());
     if (ifExists)
       return createSimpleJSONResponse(BAD_REQUEST, "Resource exists");
+    if (result.hasErrors()) {
+      System.out.println(result);
+      return createSimpleJSONResponse(BAD_REQUEST, result.getFieldError().getDefaultMessage());
+      }
     try {
       customerRepo.save(c);
     } catch (Exception e) {

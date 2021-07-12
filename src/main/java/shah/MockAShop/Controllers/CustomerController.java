@@ -2,9 +2,12 @@ package shah.MockAShop.Controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,8 +40,8 @@ public class CustomerController {
   }
 
   @PostMapping("/customer")
-  public ResponseEntity<String> addCustomer(@RequestBody Customer c) {
-    return customerService.addCustomer(c);
+  public ResponseEntity<String> addCustomer(@Valid @RequestBody Customer c, BindingResult result) {
+    return customerService.addCustomer(c, result);
   }
   @PutMapping("/customer")
   public ResponseEntity<String> updateCustomer(@RequestBody Customer c) {
