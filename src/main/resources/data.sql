@@ -14,3 +14,4 @@ CREATE TABLE `mockashop`.`customer` (
 
 INSERT INTO `mockashop`.`customer` (`seller_id`, `seller_name`, `seller_email`, `seller_pswd`, `seller_contact`) VALUES ('10001', 'cindi', 'cindi@gmail.com', 'abc123', '92212152');
 INSERT INTO `mockashop`.`customer` (`seller_id`, `seller_name`, `seller_email`, `seller_pswd`, `seller_contact`) VALUES ('10002', 'shah', 'shah@gmail.com', 'xyz456', '93262634');
+
