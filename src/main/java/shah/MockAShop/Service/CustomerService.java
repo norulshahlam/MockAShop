@@ -1,17 +1,11 @@
 package shah.MockAShop.Service;
 
 import java.util.List;
-import java.util.Optional;
-
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-
 import shah.MockAShop.Models.Customer;
 import shah.MockAShop.Repository.CustomerRepo;
 import static org.springframework.http.HttpStatus.*;
@@ -28,9 +22,9 @@ public class CustomerService {
     List<Customer> findAll = customerRepo.findAll();
     return ResponseEntity.status(HttpStatus.OK).body(findAll);
   }
-
+ 
   // FIND ONE
-  public ResponseEntity<?> getCustomerById(String id) {
+  public ResponseEntity<?> getCustomerById(int id) {
     Customer result = new Customer();
     try {
       result = customerRepo.findById(id).get();
@@ -53,6 +47,7 @@ public class CustomerService {
     try {
       customerRepo.save(c);
     } catch (Exception e) {
+      System.out.println(e.getMessage());
       return createSimpleJSONResponse(BAD_REQUEST, e.getLocalizedMessage());
     }
     return createSimpleJSONResponse(CREATED, "Resource created");
@@ -74,7 +69,7 @@ public class CustomerService {
   }
 
   // DELETE ONE
-  public ResponseEntity<String> deleteCustomer(String c) {
+  public ResponseEntity<String> deleteCustomer(int c) {
 
     try {
       customerRepo.deleteById(c);

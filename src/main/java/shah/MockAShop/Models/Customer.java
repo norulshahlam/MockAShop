@@ -13,12 +13,12 @@ import lombok.Data;
 
 @Entity
 @Data
-@SequenceGenerator(name="seq", initialValue=1000, allocationSize=1000)
+@SequenceGenerator(name="seq", initialValue=1000, allocationSize=1)
 public class Customer {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-  private String seller_id;
+  private int seller_id;
 
   @NotNull(message = "Name cannot be blank")
   @Size(min=5, message = "Name must contain atleast 5 character")
