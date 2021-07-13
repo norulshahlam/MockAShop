@@ -33,7 +33,7 @@ public class Product {
   private BigDecimal product_price;
 
   @Size(min=5, message = "Description must contain atleast 8 character")
-  @NotNull(message = "Description cannot be blank")
+  @NotNull(message = "Description cannot be blank") 
   private String product_description;
 
   @ManyToOne
