@@ -1,9 +1,7 @@
 package shah.MockAShop.Controllers;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -23,7 +21,6 @@ public class CustomerController {
   @Autowired
   CustomerService customerService;
 
-
   @GetMapping("/customers")
   public ResponseEntity<List<Customer>> getCustomers() {
     return customerService.getCustomers();
@@ -31,13 +28,14 @@ public class CustomerController {
 
   @GetMapping("/customer/{id}")
   public ResponseEntity<?> getCustomerById(@PathVariable("id") int id) {
-   return customerService.getCustomerById(id);
+    return customerService.getCustomerById(id);
   }
 
   @PostMapping("/customer")
   public ResponseEntity<String> addCustomer(@Valid @RequestBody Customer c, BindingResult result) {
     return customerService.addCustomer(c, result);
   }
+
   @PutMapping("/customer")
   public ResponseEntity<String> updateCustomer(@RequestBody Customer c) {
     return customerService.updateCustomer(c);
@@ -48,4 +46,3 @@ public class CustomerController {
     return customerService.deleteCustomer(id);
   }
 }
-

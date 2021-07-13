@@ -1,5 +1,3 @@
-create database mockashop;
-
 CREATE TABLE `mockashop`.`customer` (
   `customer_id` INT NOT NULL AUTO_INCREMENT,
   `customer_name` VARCHAR(45) NOT NULL,
