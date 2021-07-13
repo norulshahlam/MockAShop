@@ -10,6 +10,9 @@ import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
@@ -40,7 +43,7 @@ public class Seller {
 
   @NotNull(message = "Wallet cannot be blank")
   private BigDecimal seller_wallet;
-  
+  @JsonIgnore
   @OneToMany(mappedBy = "seller")
   private Set<Product> product;
      

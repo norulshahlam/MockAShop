@@ -31,12 +31,12 @@ public class Cart {
   @JoinColumn(name = "cust_id")
   private Customer customer;
 
+      @JsonIgnore
   @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(name = "cart_items", 
       joinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "cart_id"), 
       inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "product_id"))
 
-      @JsonIgnore
   private Set<Product> products;
 
 }

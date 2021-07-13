@@ -1,11 +1,9 @@
 package shah.MockAShop.Repository;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import shah.MockAShop.Models.Customer;
+import shah.MockAShop.Models.Product;
 
 @Repository
-public interface CustomerRepo extends JpaRepository<Customer, Integer> {
+public interface ProductRepo extends JpaRepository<Product, Integer> {
 }
 

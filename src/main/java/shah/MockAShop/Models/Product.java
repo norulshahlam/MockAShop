@@ -36,6 +36,7 @@ public class Product {
   @NotNull(message = "Description cannot be blank")
   private String product_description;
 
+  @JsonIgnore
   @ManyToOne
   @JoinColumn(name = "seller_id")
   private Seller seller;
