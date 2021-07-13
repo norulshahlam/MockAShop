@@ -3,9 +3,9 @@
   `implementing basic rest controller`
   `implementing http request`
   `model validation`
-  `add seller, product`
+  `add seller, product model`
   `establish relationship - seller has many product`
-  `add cart, cart item`
+  `add cart, cart item model only`
 
 
 We will go step-by-step on how to create from scratch using a problem statement given.

@@ -2,6 +2,7 @@ package shah.MockAShop.Models;
 import java.math.BigDecimal;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,7 +37,6 @@ public class Product {
   @NotNull(message = "Description cannot be blank")
   private String product_description;
 
-  @JsonIgnore
   @ManyToOne
   @JoinColumn(name = "seller_id")
   private Seller seller;
