@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import shah.MockAShop.Models.CartItems;
+import shah.MockAShop.Models.Cart_Items;
 import shah.MockAShop.Service.CartItemsService;
 
 @RestController
@@ -21,27 +21,27 @@ public class CartItemController {
   @Autowired
   CartItemsService cartItemsService;
 
-  @GetMapping("/cartItems")
-  public ResponseEntity<List<CartItems>> getCartItems() {
+  @GetMapping("/cart-items")
+  public ResponseEntity<List<Cart_Items>> getCartItems() {
     return cartItemsService.getCartItems();
   }
 
-  @GetMapping("/cartItems/{id}")
+  @GetMapping("/cart-items/{id}")
   public ResponseEntity<?> getCartItemsById(@PathVariable("id") int id) {
     return cartItemsService.getCartItemsById(id);
   }
 
-  @PostMapping("/cartItems")
-  public ResponseEntity<String> addCartItems(@Valid @RequestBody CartItems c, BindingResult result) {
+  @PostMapping("/cart-items")
+  public ResponseEntity<String> addCartItems(@Valid @RequestBody Cart_Items c, BindingResult result) {
     return cartItemsService.addCartItems(c, result);
   }
 
-  @PutMapping("/cartItems")
-  public ResponseEntity<String> updateCartItems(@RequestBody CartItems c) {
+  @PutMapping("/cart-items")
+  public ResponseEntity<String> updateCartItems(@RequestBody Cart_Items c) {
     return cartItemsService.updateCartItems(c);
   }
 
-  @DeleteMapping("/cartItems/{id}")
+  @DeleteMapping("/cart-items/{id}")
   public ResponseEntity<String> deleteCartItems(@PathVariable("id") int id) {
     return cartItemsService.deleteCartItems(id);
   }

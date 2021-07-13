@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-import shah.MockAShop.Models.CartItems;
+import shah.MockAShop.Models.Cart_Items;
 import shah.MockAShop.Repository.CartItemsRepo;
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
@@ -18,15 +18,15 @@ public class CartItemsService {
   private CartItemsRepo cartItemsRepo;
 
   // FIND ALL
-  public ResponseEntity<List<CartItems>> getCartItems() {
+  public ResponseEntity<List<Cart_Items>> getCartItems() {
     System.out.println(33333);
-    List<CartItems> findAll = cartItemsRepo.findAll();
+    List<Cart_Items> findAll = cartItemsRepo.findAll();
     return ResponseEntity.status(HttpStatus.OK).body(findAll);
   }
  
   // FIND ONE
   public ResponseEntity<?> getCartItemsById(int id) {
-    CartItems result = new CartItems();
+    Cart_Items result = new Cart_Items();
     try {
       result = cartItemsRepo.findById(id).get();
     } catch (Exception e) {
@@ -37,7 +37,7 @@ public class CartItemsService {
   }
 
   // ADD ONE
-  public ResponseEntity<String> addCartItems(CartItems c, BindingResult result) {
+  public ResponseEntity<String> addCartItems(Cart_Items c, BindingResult result) {
     boolean ifExists = cartItemsRepo.existsById(c.getDummy_id());
     if (ifExists)
       return createSimpleJSONResponse(BAD_REQUEST, "Resource exists");
@@ -55,7 +55,7 @@ public class CartItemsService {
   }
 
   // UPDATE ONE
-  public ResponseEntity<String> updateCartItems(CartItems c) {
+  public ResponseEntity<String> updateCartItems(Cart_Items c) {
     boolean ifExists = cartItemsRepo.existsById(c.getDummy_id());
   
     if (!ifExists)
