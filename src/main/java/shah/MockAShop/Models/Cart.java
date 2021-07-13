@@ -26,17 +26,16 @@ public class Cart {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
   private int cart_id;
 
-  @JsonIgnore
   @ManyToOne
   @JoinColumn(name = "cust_id")
   private Customer customer;
 
-      @JsonIgnore
+  @JsonIgnore
   @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(name = "cart_items", 
-      joinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "cart_id"), 
-      inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "product_id"))
-
+      joinColumns = @JoinColumn(name = "cart_id", 
+      referencedColumnName = "cart_id"), 
+      inverseJoinColumns = @JoinColumn(name = "product_id", 
+      referencedColumnName = "product_id"))
   private Set<Product> products;
-
 }
