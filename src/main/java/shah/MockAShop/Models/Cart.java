@@ -1,12 +1,11 @@
 package shah.MockAShop.Models;
-import java.math.BigDecimal;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 import lombok.Data;
@@ -19,9 +18,9 @@ public class Cart {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
   private int cart_id;
-
-  @OneToMany(mappedBy = "cart")
-  private Set<Customer> customer;
-
+  
+  @ManyToOne
+  @JoinColumn(name = "cust_id")
+  private Customer customer;
      
 }

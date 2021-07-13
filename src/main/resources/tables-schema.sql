@@ -56,7 +56,7 @@ CREATE TABLE `mockashop`.`cart_items` (
   `cart_id` INT NOT NULL,
   `product_id` INT NOT NULL,
   `quantity` INT NOT NULL,
-  UNIQUE INDEX `cart_id_UNIQUE` (`cart_id` ASC) VISIBLE,
+  INDEX `cart_id_idx` (`cart_id` ASC) VISIBLE,
   INDEX `product_id_idx` (`product_id` ASC) VISIBLE,
   CONSTRAINT `cart_id`
     FOREIGN KEY (`cart_id`)

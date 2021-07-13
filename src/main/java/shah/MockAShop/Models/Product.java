@@ -30,10 +30,6 @@ public class Product {
   @NotNull(message = "Description cannot be blank")
   private String product_description;
 
-  @Size(min=5, message = "Contact must contain atleast 8 character")
-  @NotNull(message = "Password cannot be blank")
-  private String product_contact;
-
   @ManyToOne
   @JoinColumn(name = "seller_id")
   private Seller seller;
