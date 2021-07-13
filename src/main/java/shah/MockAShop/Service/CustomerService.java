@@ -19,6 +19,7 @@ public class CustomerService {
 
   // FIND ALL
   public ResponseEntity<List<Customer>> getCustomers() {
+    System.out.println(33333);
     List<Customer> findAll = customerRepo.findAll();
     return ResponseEntity.status(HttpStatus.OK).body(findAll);
   }

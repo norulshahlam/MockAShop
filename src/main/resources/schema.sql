@@ -49,11 +49,12 @@ CREATE TABLE `mockashop`.`cart` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
 CREATE TABLE `mockashop`.`cart_items` (
+  `dummy_id` INT NOT NULL AUTO_INCREMENT,
   `cart_id` INT NOT NULL,
   `product_id` INT NOT NULL,
   `quantity` INT NOT NULL,
+  PRIMARY KEY (`dummy_id`),
   INDEX `cart_id_idx` (`cart_id` ASC) VISIBLE,
   INDEX `product_id_idx` (`product_id` ASC) VISIBLE,
   CONSTRAINT `cart_id`

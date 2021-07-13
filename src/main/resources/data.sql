@@ -9,3 +9,16 @@ INSERT INTO `mockashop`.`product` (`product_id`, `product_name`, `product_price`
 INSERT INTO `mockashop`.`product` (`product_id`, `product_name`, `product_price`, `product_description`, `seller_id`) VALUES ('30002', 'bag', '140.60', 'for travel', '20001');
 INSERT INTO `mockashop`.`product` (`product_id`, `product_name`, `product_price`, `product_description`, `seller_id`) VALUES ('30003', 'cap', '20.50', 'protect from the sun', '20002');
 INSERT INTO `mockashop`.`product` (`product_id`, `product_name`, `product_price`, `product_description`, `seller_id`) VALUES ('30004', 'shirt', '30.45', 'jalan jalan', '20002');
+
+INSERT INTO `mockashop`.`cart` (`cart_id`, `cust_id`) VALUES ('40001', '10001');
+INSERT INTO `mockashop`.`cart` (`cart_id`, `cust_id`) VALUES ('40002', '10002');
+
+
+INSERT INTO `mockashop`.`cart_items` (`dummy_id`, `cart_id`, `product_id`, `quantity`) VALUES ('10', '40001', '30001', '3');
+INSERT INTO `mockashop`.`cart_items` (`dummy_id`, `cart_id`, `product_id`, `quantity`) VALUES ('11', '40001', '30002', '5');
+INSERT INTO `mockashop`.`cart_items` (`dummy_id`, `cart_id`, `product_id`, `quantity`) VALUES ('12', '40001', '30003', '4');
+INSERT INTO `mockashop`.`cart_items` (`dummy_id`, `cart_id`, `product_id`, `quantity`) VALUES ('13', '40001', '30004', '2');
+INSERT INTO `mockashop`.`cart_items` (`dummy_id`, `cart_id`, `product_id`, `quantity`) VALUES ('14', '40002', '30001', '6');
+INSERT INTO `mockashop`.`cart_items` (`dummy_id`, `cart_id`, `product_id`, `quantity`) VALUES ('15', '40002', '30002', '7');
+INSERT INTO `mockashop`.`cart_items` (`dummy_id`, `cart_id`, `product_id`, `quantity`) VALUES ('16', '40002', '30003', '2');
+INSERT INTO `mockashop`.`cart_items` (`dummy_id`, `cart_id`, `product_id`, `quantity`) VALUES ('17', '40002', '30004', '1');
