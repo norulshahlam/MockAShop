@@ -17,11 +17,11 @@ import lombok.Data;
 
 @Entity
 @Data
-@SequenceGenerator(name="seq", initialValue=2000, allocationSize=1)
+@SequenceGenerator(name="seq2", initialValue=2000, allocationSize=1)
 public class Seller {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq2")
   private int seller_id;
 
   @NotNull(message = "Name cannot be blank")

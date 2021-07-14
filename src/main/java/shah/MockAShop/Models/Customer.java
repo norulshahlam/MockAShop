@@ -19,11 +19,11 @@ import lombok.Data;
 
 @Entity
 @Data
-@SequenceGenerator(name = "seq", initialValue = 1000, allocationSize = 1)
+@SequenceGenerator(name = "seq1", initialValue = 1000, allocationSize = 1)
 public class Customer {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq1")
   private int customer_id;
 
   @Size(min = 5, message = "Contact must contain atleast 8 character")

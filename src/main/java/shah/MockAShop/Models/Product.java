@@ -1,4 +1,5 @@
 package shah.MockAShop.Models;
+
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -13,29 +14,37 @@ import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
+
 @Entity
 @Data
-@SequenceGenerator(name="seq", initialValue=3000, allocationSize=1)
+@SequenceGenerator(name = "seq3", initialValue = 3000, allocationSize = 1)
 public class Product {
-  
+
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq3")
   private int product_id;
 
   @NotNull(message = "Name cannot be blank")
-  @Size(min=5, message = "Name must contain atleast 5 character")
+  @Size(min = 5, message = "Name must contain atleast 5 character")
   private String product_name;
 
   @NotNull(message = "Price cannot be blank")
   private BigDecimal product_price;
 
-  @Size(min=5, message = "Description must contain atleast 8 character")
-  @NotNull(message = "Description cannot be blank") 
+  @Size(min = 5, message = "Description must contain atleast 8 character")
+  @NotNull(message = "Description cannot be blank")
   private String product_description;
 
+  @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "seller_id")
+  @JsonIdentityReference(alwaysAsId = true)
+  @JsonProperty("seller_id")
   @ManyToOne
   @JoinColumn(name = "seller_id")
   private Seller seller;
@@ -43,5 +52,5 @@ public class Product {
   @JsonIgnore
   @ManyToMany(mappedBy = "products")
   private Set<Cart> cart;
-     
+
 }
