@@ -38,9 +38,7 @@ public class ProductService {
 
   // ADD ONE
   public ResponseEntity<String> addProduct(Product c, BindingResult result) {
-    boolean ifExists = productRepo.existsById(c.getProduct_id());
-    if (ifExists)
-      return createSimpleJSONResponse(BAD_REQUEST, "Resource exists");
+   
     if (result.hasErrors()) {
       System.out.println(result);
       return createSimpleJSONResponse(BAD_REQUEST, result.getFieldError().getDefaultMessage());

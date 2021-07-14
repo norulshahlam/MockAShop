@@ -18,12 +18,12 @@ import lombok.Data;
 @Entity
 @Data
 @SequenceGenerator(name="seq2", initialValue=2000, allocationSize=1)
-public class Seller {
+public class Seller  { 
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq2")
   private int seller_id;
-
+ 
   @NotNull(message = "Name cannot be blank")
   @Size(min=5, message = "Name must contain atleast 5 character")
   private String seller_name;
@@ -32,7 +32,7 @@ public class Seller {
   @Email(message = "Enter valid email")
   @Size(min=5, message = "Email must contain atleast 5 character")
   private String seller_email;
-
+ 
   @Size(min=5, message = "Password must contain atleast 8 character")
   @NotNull(message = "Password cannot be blank")
   private String seller_pswd;
