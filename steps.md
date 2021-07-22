@@ -9,6 +9,9 @@ We will go step-by-step on how to create from scratch using a problem statement 
 `login seller/customer`
   GET localhost:8080/login
     -id/pswd in body
+`register seller/customer`
+  GET localhost:8080/register
+  POST localhost:8080/register
 `display product list`
   GET localhost:8080/products/all
   - pagination
@@ -18,6 +21,8 @@ We will go step-by-step on how to create from scratch using a problem statement 
   GET localhost:8080/products/productId
 `view cart`
   GET localhost:8080/cart
+`make payment`
+  POST localhost:8080/cart
 `view seller dashboard`
   GET localhost:8080/seller/{sellerId}
 `display all seller-product`
