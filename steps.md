@@ -12,9 +12,8 @@ We will go step-by-step on how to create from scratch using a problem statement 
 `register seller/customer`  
   GET localhost:8080/register  
   POST localhost:8080/register  
-`display product list`  
-  GET localhost:8080/products/all  
-  - pagination  
+`display product list (pagination)`  
+  GET localhost:8080/products/all    
 `search certain products`  
   GET localhost:8080/products/{productId}  
 `display certain product`  
@@ -29,13 +28,13 @@ We will go step-by-step on how to create from scratch using a problem statement 
   GET localhost:8080/seller/products/all  
 `search seller-certain products`  
   GET localhost:8080/seller/products/{productId}  
-  - authenticated, filter by seller-id  
+  authenticated, filter by seller-id  
 `edit 1 seller products`  
   POST localhost:8080/seller/products/{productId}  
-  - authenticated, filter by seller-id  
+  authenticated, filter by seller-id  
 `display seller-certain product`  
   GET localhost:8080/seller/products/productId  
-  - authenticated, filter by seller-id  
+  authenticated, filter by seller-id  
 
 
 
