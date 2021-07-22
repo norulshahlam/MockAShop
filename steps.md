@@ -34,7 +34,10 @@ We will go step-by-step on how to create from scratch using a problem statement 
   GET localhost:8080/seller/products/{productId}  
   authenticated, filter by seller-id  
 `edit 1 seller products`  
-  POST localhost:8080/seller/products/{productId}  
+  PUT localhost:8080/seller/products/{productId}  
+  authenticated, filter by seller-id  
+`delete 1 seller products`  
+  DELETE localhost:8080/seller/products/{productId}  
   authenticated, filter by seller-id  
 `display seller-certain product`  
   GET localhost:8080/seller/products/productId  
