@@ -7,35 +7,35 @@ We will go step-by-step on how to create from scratch using a problem statement 
 
 
 `login seller/customer`  
-  GET localhost:8080/login
-    -id/pswd in body
+  GET localhost:8080/login  
+    -id/pswd in body  
 `register seller/customer`  
-  GET localhost:8080/register
-  POST localhost:8080/register
+  GET localhost:8080/register  
+  POST localhost:8080/register  
 `display product list`  
-  GET localhost:8080/products/all
-  - pagination
+  GET localhost:8080/products/all  
+  - pagination  
 `search certain products`  
-  GET localhost:8080/products/{productId}
+  GET localhost:8080/products/{productId}  
 `display certain product`  
-  GET localhost:8080/products/productId
+  GET localhost:8080/products/productId  
 `view cart`  
-  GET localhost:8080/cart
+  GET localhost:8080/cart  
 `make payment`  
-  POST localhost:8080/cart
+  POST localhost:8080/cart  
 `view seller dashboard`  
-  GET localhost:8080/seller/{sellerId}
+  GET localhost:8080/seller/{sellerId}  
 `display all seller-product`  
-  GET localhost:8080/seller/products/all
+  GET localhost:8080/seller/products/all  
 `search seller-certain products`  
-  GET localhost:8080/seller/products/{productId}
-  - authenticated, filter by seller-id
+  GET localhost:8080/seller/products/{productId}  
+  - authenticated, filter by seller-id  
 `edit 1 seller products`  
-  POST localhost:8080/seller/products/{productId}
-  - authenticated, filter by seller-id
+  POST localhost:8080/seller/products/{productId}  
+  - authenticated, filter by seller-id  
 `display seller-certain product`  
-  GET localhost:8080/seller/products/productId
-  - authenticated, filter by seller-id
+  GET localhost:8080/seller/products/productId  
+  - authenticated, filter by seller-id  
 
 
 
