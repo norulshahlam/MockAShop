@@ -6,9 +6,11 @@ We will go step-by-step on how to create from scratch using a problem statement 
 ### Create endpoints based on the features - For Hegderd
 
 
+`homepage`  
+  GET localhost:8080/index  
 `login seller/customer`  
-  GET localhost:8080/login  
-    -id/pswd in body  
+  POST localhost:8080/login  
+  -id/pswd in body  
 `register seller/customer`  
   GET localhost:8080/register  
   POST localhost:8080/register  
@@ -24,6 +26,8 @@ We will go step-by-step on how to create from scratch using a problem statement 
   POST localhost:8080/cart  
 `view seller dashboard`  
   GET localhost:8080/seller/{sellerId}  
+`view customer dashboard`  
+  GET localhost:8080/customer/{sellerId}  
 `display all seller-product`  
   GET localhost:8080/seller/products/all  
 `search seller-certain products`  
